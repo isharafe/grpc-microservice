@@ -55,6 +55,13 @@
 			<version>${project.version}</version>
 		</dependency>
 
+		<!-- utilities -->
+		<dependency>
+			<groupId>com.ruchira.learn.grpc</groupId>
+			<artifactId>util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<!-- auto reload app on changes -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
