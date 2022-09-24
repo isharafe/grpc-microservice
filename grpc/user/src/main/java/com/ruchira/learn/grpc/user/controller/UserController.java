@@ -1,5 +1,7 @@
 package com.ruchira.learn.grpc.user.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +31,7 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public void login(@RequestParam String username, @RequestParam String password) {
-		authService.login(username, password);
+	public String login(HttpServletRequest request, @RequestParam String username, @RequestParam String password) {
+		return authService.login(username, password, request.getRequestURI());
 	}
 }
