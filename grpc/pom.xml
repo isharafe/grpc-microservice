@@ -19,7 +19,6 @@
 		<module>order</module>
 		<module>user</module>
 		<module>grpc-interface</module>
-		<module>util</module>
 	</modules>
 
 </project>

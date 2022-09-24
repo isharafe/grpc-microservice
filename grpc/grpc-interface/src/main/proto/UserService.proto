@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.ruchira.learn.grpc.order;
+
+option java_multiple_files = true;
+option java_package = "com.ruchira.learn.grpc.order.gen";
+option java_outer_classname = "UserService";
+
+// call from the file service --> to --> meta service
+service AuthService {
+    //
+    rpc getUserAuthProfile (AuthTokenRequest) returns (AuthTokenResponse) {
+    }
+}
+
+//
+message AuthTokenRequest {
+    string token = 1;
+}
+
+//
+message AuthTokenResponse {
+	bool isAuthenticated = 1;
+    string username = 2;
+    string name = 3;
+    repeated string authorities = 4;
+}
