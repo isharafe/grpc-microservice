@@ -17,6 +17,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.ruchira.learn.grpc.user.filter.AuthTokenFilter;
 import com.ruchira.learn.grpc.user.service.UserService;
 
+import net.devh.boot.grpc.server.security.authentication.BasicGrpcAuthenticationReader;
+import net.devh.boot.grpc.server.security.authentication.GrpcAuthenticationReader;
+
 @Configuration
 public class SecurityConfig {
 
@@ -63,6 +66,11 @@ public class SecurityConfig {
 	      .passwordEncoder(passwordEncoder)
 	      .and()
 	      .build();
+	}
+
+	@Bean
+	public GrpcAuthenticationReader grpcAuthenticationReader() {
+	    return new BasicGrpcAuthenticationReader();
 	}
 
 }

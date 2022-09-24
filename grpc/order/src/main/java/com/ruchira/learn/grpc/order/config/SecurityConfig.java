@@ -6,6 +6,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
+import net.devh.boot.grpc.server.security.authentication.BasicGrpcAuthenticationReader;
+import net.devh.boot.grpc.server.security.authentication.GrpcAuthenticationReader;
+
 @Configuration
 public class SecurityConfig {
 
@@ -23,6 +26,11 @@ public class SecurityConfig {
 				.anyRequest().permitAll()
 		);
 		return http.build();
+	}
+
+	@Bean
+	public GrpcAuthenticationReader grpcAuthenticationReader() {
+	    return new BasicGrpcAuthenticationReader();
 	}
 
 }
