@@ -13,6 +13,8 @@ public class CustomerOrder extends BaseModel {
 
 	private String orderName;
 
+	private String username;
+
 	private Date orderedDate;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "order")
@@ -24,6 +26,14 @@ public class CustomerOrder extends BaseModel {
 
 	public void setOrderName(String orderName) {
 		this.orderName = orderName;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Date getOrderedDate() {

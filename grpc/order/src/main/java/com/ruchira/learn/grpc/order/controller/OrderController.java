@@ -23,17 +23,17 @@ public class OrderController {
 
 	@GetMapping
 	public Page<CustomerOrder> getOrders(Pageable pageable) {
-		return orderService.getOrders(pageable);
+		return orderService.getMyOrders(pageable);
 	}
 
 	@GetMapping("/{orderId}")
-	public CustomerOrder getOrder(@PathVariable Long orderId, Pageable pageable) {
-		return orderService.getOrder(orderId, pageable);
+	public CustomerOrder getOrder(@PathVariable Long orderId) {
+		return orderService.getMyOrder(orderId);
 	}
 
 	@GetMapping("{orderId}/items")
 	public Page<OrderItem> getOrderItems(@PathVariable Long orderId, Pageable pageable) {
-		return orderService.getOrderItems(orderId, pageable);
+		return orderService.getMyOrderItems(orderId, pageable);
 	}
 
 	@PostMapping

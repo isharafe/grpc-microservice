@@ -10,5 +10,5 @@ import com.ruchira.learn.grpc.order.model.OrderItem;
 @Repository
 public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
 
-	Page<OrderItem> findByOrderId(Long orderId, Pageable page);
+	Page<OrderItem> findByOrderIdAndOrderUsername(Long orderId, String username, Pageable pageable);
 }
